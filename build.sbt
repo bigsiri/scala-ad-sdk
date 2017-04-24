@@ -40,14 +40,7 @@ lazy val publicationSettings = Seq(
         )
       )
     else
-      Seq(
-        Credentials(
-          realm = "Bintray API Realm",
-          host = "api.bintray.com",
-          userName = System.getenv("BINTRAY_USER"),
-          passwd = System.getenv("BINTRAY_PASSWORD")
-        )
-      )
+      credentials.value
   },
   publishArtifact in Test := false,
   bintrayReleaseOnPublish := !isSnapshot.value
